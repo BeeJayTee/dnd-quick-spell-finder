@@ -21,7 +21,8 @@ const section2 = $('#section2')
 function findDnd() {
     section2.innerHTML = ''
     let userInput = $('#userInput').value
-    fetch(`https://www.dnd5eapi.co/api/spells/?name=${userInput}`)
+    if (userInput.trim().length > 0) {
+        fetch(`https://www.dnd5eapi.co/api/spells/?name=${userInput}`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -52,6 +53,8 @@ function findDnd() {
             }
         })
         .catch(err => console.log(err))
+    }
+    
 }
 
 function getSpell(url) {
