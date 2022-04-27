@@ -13,6 +13,7 @@
 /* Box Model Hack */
 *{
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 input[type='button']:hover, input[type='submit']:hover {
@@ -58,9 +59,18 @@ main {
   padding-left: 100px;
 }
 
+.flexDiv {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.spellDamage, .spellInfo {
+  flex-basis: 50%;
+}
+
 #section2 p {
   margin: .25rem 0;
-  max-width: 50%;
+  max-width: 75%;
 }
 
 /******************************************

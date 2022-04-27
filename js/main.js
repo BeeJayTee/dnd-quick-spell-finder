@@ -59,8 +59,6 @@ function getSpell(url) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            // create the two flex divs for #section2
-
             // name
             let name = createElement('h2')
             name.innerText = `${data.name}`
@@ -73,10 +71,20 @@ function getSpell(url) {
             let desc = createElement('p')
             desc.innerHTML = `<strong>${data.desc}</strong>`
             section2.append(desc)
+
+            // create a flexbox div for spellInfo and spellDamage
+            let flexDiv = createElement('div')
+            flexDiv.className = 'flexDiv'
+            section2.appendChild(flexDiv)
+
             // create div for spellInfo
             let spellInfo = createElement('div')
             spellInfo.className = 'spellInfo'
-            section2.appendChild(spellInfo)
+            flexDiv.appendChild(spellInfo)
+            // spell info title
+            let spellInfoTitle = createElement('h3')
+            spellInfoTitle.innerText = 'General Spell Info'
+            spellInfo.appendChild(spellInfoTitle)
             // casting time
             spellInfo.appendChild(createListElement('Casting Time', data.casting_time))
             // range
@@ -95,29 +103,26 @@ function getSpell(url) {
             } catch {
                 // pass
             }
+
             // create div for spellDamage
             let spellDamage = createElement('div')
             spellDamage.className = 'spellDamage'
-            section2.appendChild(spellDamage)
+            flexDiv.appendChild(spellDamage)
             // damage
             if (data.damage) {
-                let damageTitle = createElement('h2')
+                let damageTitle = createElement('h3')
                 damageTitle.innerText = 'Damage'
-                section2.appendChild(damageTitle)
+                spellDamage.appendChild(damageTitle)
                 // damage type
-                section2.appendChild(createListElement('Damage Type', data.damage.damage_type.name))
+                spellDamage.appendChild(createListElement('Damage Type', data.damage.damage_type.name))
                 // damage at different spell levels
                 let damageLevelTitle = createElement('h4')
                 damageLevelTitle.innerText = 'Damage at Spell Levels:'
-                section2.appendChild(damageLevelTitle)
+                spellDamage.appendChild(damageLevelTitle)
                 let slotObject = data.damage.damage_at_slot_level
                 for(prop in slotObject) {
-                    section2.appendChild(createListElement(prop, slotObject[prop]))
+                    spellDamage.appendChild(createListElement(prop, slotObject[prop]))
                 }
             }
         })
-}
-
-function printPoop() {
-    console.log('poop')
 }
