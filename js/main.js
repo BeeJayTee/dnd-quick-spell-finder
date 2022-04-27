@@ -16,7 +16,7 @@ $('#userInput').addEventListener('keypress', function(e) {
 
 
 
-const spellInfo = $('#section2 #spellInfo')
+const section2 = $('#section2')
 
 function findDnd() {
     section2.innerHTML = ''
@@ -59,18 +59,24 @@ function getSpell(url) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            // create the two flex divs for #section2
+
             // name
             let name = createElement('h2')
             name.innerText = `${data.name}`
-            spellInfo.appendChild(name)
+            section2.append(name)
             // level and school
             let levelAndSchool = createElement('p')
             levelAndSchool.innerText = `Level ${data.level} - ${data.school.name}`
-            spellInfo.appendChild(levelAndSchool)
+            section2.append(levelAndSchool)
             // description
             let desc = createElement('p')
             desc.innerHTML = `<strong>${data.desc}</strong>`
-            spellInfo.appendChild(desc)
+            section2.append(desc)
+            // create div for spellInfo
+            let spellInfo = createElement('div')
+            spellInfo.className = 'spellInfo'
+            section2.appendChild(spellInfo)
             // casting time
             spellInfo.appendChild(createListElement('Casting Time', data.casting_time))
             // range
@@ -89,6 +95,10 @@ function getSpell(url) {
             } catch {
                 // pass
             }
+            // create div for spellDamage
+            let spellDamage = createElement('div')
+            spellDamage.className = 'spellDamage'
+            section2.appendChild(spellDamage)
             // damage
             if (data.damage) {
                 let damageTitle = createElement('h2')
