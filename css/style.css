@@ -1,0 +1,77 @@
+:root {
+  --red: #e94445;
+  --blue: #264c5e;
+  --darkRed: #a34c50;
+  --light: #cec2ae;
+  --maroon: #4a2932;
+}
+
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+input[type='button']:hover, input[type='submit']:hover {
+  cursor: pointer;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+main {
+  padding: 25px 100px;
+  display: flex;
+}
+
+#section1 {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  width: 50%;
+  gap: 1.25rem;
+  flex-basis: 25%;
+}
+
+#section1 input[type='text'] {
+  color: var(--maroon);
+  width: 75%;
+  height: 35px;
+}
+
+#section1 input[type='submit'] {
+  background: var(--light);
+  color: var(--maroon);
+  border: none;
+  width: 75%;
+  height: 35px;
+}
+
+#section2 {
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+}
+
+#section2 p {
+  margin: .25rem 0;
+  max-width: 50%;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+.spellButton {
+  background: var(--maroon);
+  color: white;
+  border: none;
+  width: 25rem;
+  height: 35px;
+  margin-bottom: 1rem;
+}
