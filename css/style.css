@@ -16,8 +16,16 @@
   font-family: 'Lato', sans-serif;
 }
 
+body {
+  background: rgba(206,194,174,.15)
+}
+
 input[type='button']:hover, input[type='submit']:hover {
   cursor: pointer;
+}
+
+p {
+  line-height: 1.5;
 }
 
 /******************************************
@@ -36,6 +44,10 @@ main {
   width: 50%;
   gap: 1.25rem;
   flex-basis: 25%;
+}
+
+#section1 h1 {
+  color: var(--maroon)
 }
 
 #section1 input[type='text'] {
@@ -57,6 +69,14 @@ main {
   display: flex;
   flex-direction: column;
   padding-left: 100px;
+}
+
+#section2 h2 {
+  color: var(--red)
+}
+
+#section2 h3 {
+  color: var(--darkRed)
 }
 
 .flexDiv {

@@ -118,6 +118,7 @@ function getSpell(url) {
                 // damage at different spell levels
                 let damageLevelTitle = createElement('h4')
                 damageLevelTitle.innerText = 'Damage at Spell Levels:'
+                damageLevelTitle.style.marginBottom = '.5rem'
                 spellDamage.appendChild(damageLevelTitle)
                 let slotObject = data.damage.damage_at_slot_level
                 for(prop in slotObject) {
