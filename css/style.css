@@ -37,13 +37,40 @@ main {
   display: flex;
 }
 
+@media screen and (max-width: 1050px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 #section1 {
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
   width: 50%;
   gap: 1.25rem;
   flex-basis: 25%;
+}
+
+@media screen and (max-width: 600px) {
+  #section1 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  #section1 {
+    flex-basis: 100%;
+    margin: auto;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
 }
 
 #section1 h1 {
@@ -56,6 +83,13 @@ main {
   height: 35px;
 }
 
+@media screen and (max-width: 1050px) {
+  #section1 input[type='text'] {
+    text-align: center;
+    margin: auto;
+  }
+}
+
 #section1 input[type='submit'] {
   background: var(--light);
   color: var(--maroon);
@@ -64,11 +98,26 @@ main {
   height: 35px;
 }
 
+@media screen and (max-width: 1050px) {
+  #section1 input[type='submit'] {
+    text-align: center;
+    margin: auto;
+  }
+}
+
 #section2 {
   flex-basis: 75%;
   display: flex;
   flex-direction: column;
   padding-left: 100px;
+}
+
+@media screen and (max-width: 1050px) {
+  #section2 {
+    flex-basis: 100%;
+    width: 100%;
+    padding: 0;
+  }
 }
 
 #section2 h2 {
@@ -93,6 +142,12 @@ main {
   max-width: 75%;
 }
 
+@media screen and (max-width: 600px) {
+  #section2 p {
+    max-width: 100%;
+  }
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
@@ -104,4 +159,10 @@ main {
   width: 25rem;
   height: 35px;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .spellButton {
+    margin: 0 auto 1rem;
+  }
 }
